@@ -1,0 +1,51 @@
+body {
+    background: #152e51;
+    height: 100vh;
+    font-family: Courier New, monospace
+}
+
+#chart-container {
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    height: 600px;
+}
+
+#cube-logo {
+    height: 65px;
+    width: 65px;
+}
+
+.title {
+    color: white;
+    font-size: 75px;
+}
+
+.subtitle {
+    color: white;
+}
+
+.is-dark-blue {
+    background: #152e51;
+}
+
+.is-light-blue {
+    background: #40cedd;
+}
+
+.is-red {
+    background: #fb9296;
+}
+
+.is-purple {
+    background: #9f99ff;
+}
+
+.is-yellow {
+    background: #fceac4;
+}
+
+.is-yellow .title, .is-yellow .subtitle {
+    color: black;
+}
