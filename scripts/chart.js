@@ -29,18 +29,6 @@ class Chart {
                     title: '',
                     domain: [0, 10],
                     range: [0, 10],
-                    ticktext:['', 'kind', '', '', '', '', '', '', '', 'mean', ''],
-                    tickvals:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                    tickangle: -20,
-                    backgroundcolor: "rgb(65, 206, 221)",
-                    gridcolor: "rgb(250,250,250)",
-                    showbackground: true,
-                    zerolinecolor: "rgb(250,250,250)",
-                },
-                zaxis: {
-                    title: '',
-                    domain: [0, 10],
-                    range: [0, 10],
                     ticktext:['', 'stupid', '', '', '', '', '', '', '', 'smart', ''],
                     tickvals:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                     tickangle: -20,
@@ -48,6 +36,18 @@ class Chart {
                     gridcolor: "rgb(250,250,250)",
                     showbackground: true,
                     zerolinecolor: "rgb(250,250,250)"
+                },
+                zaxis: {
+                    title: '',
+                    domain: [0, 10],
+                    range: [0, 10],
+                    ticktext:['', 'kind', '', '', '', '', '', '', '', 'mean', ''],
+                    tickvals:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    tickangle: -20,
+                    backgroundcolor: "rgb(65, 206, 221)",
+                    gridcolor: "rgb(250,250,250)",
+                    showbackground: true,
+                    zerolinecolor: "rgb(250,250,250)",
                 }
             },
         };
@@ -102,7 +102,7 @@ class Chart {
     getHoverText = function(name, x, y, z) {
         let values = [x, y, z];
         let labels = new Array(3);
-        let adjectives = ["scrawny", "beefy", "kind", "mean", "stupid", "smart"]
+        let adjectives = ["scrawny", "beefy", "stupid", "smart", "kind", "mean"]
     
         for (let i = 0; i < 3; i++) {
             let label1 = adjectives[(i * 2)];
