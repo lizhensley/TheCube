@@ -3,11 +3,9 @@ class Chart {
     constructor(data) {
         this.data = data;
 
-        this.isHidden = true;
-
         this.layoutConfig = {
-            paper_bgcolor= 'rgba(0,0,0,0)',
-            plot_bgcolor= 'rgba(0,0,0,0)',
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
             margin: {l: 0, r: 0, b: 0, t: 0, pad: 10},
             scene: {
                 camera: {
@@ -90,6 +88,7 @@ class Chart {
     }
 
     updateChart = function(data) {
+        console.log(data);
         let updatedDataConfig = {
             names: data.names,
             x: data.x,

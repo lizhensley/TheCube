@@ -1,9 +1,6 @@
-let chart = new Chart({
-    names: [],
-    x: [],
-    y: [],
-    z: []
-})
+let chart;
+
+let hasCreatedChart = false;
 
 let numLevels = 1;
 
@@ -19,13 +16,12 @@ function connectButtons() {
 }
 
 function handleAddNewLine() {
-    numLevels++;
     $("#buttons").before($("<div>").addClass("level data-level is-mobile").attr({id: `data-${numLevels}`}).append(
         `<div class="level-item">
         <div class="field">
           <div class="control">
             <h1 class="heading">Name</h1>
-            <input class="input is-rounded is-medium" type="text" placeholder="whomst">
+            <input class="input name is-rounded is-medium" type="text" placeholder="whomst">
           </div>
         </div>
       </div>
@@ -101,10 +97,30 @@ function handleAddNewLine() {
           <i></i>
         </div>
       </div>`))
+    $(`#data-${numLevels} .trash`).on("click", handleDeleteLine);
+    numLevels++;
 }
 
-function handleDeleteLine() {
-    
+function handleDeleteLine(e) {
+    let target = $(e.target);
+    let num = parseInt(target.parents(".data-level").attr("id").slice(5));
+    if (num == 0 && numLevels == 1) {
+        clearLine(0);
+    } else {
+        $(`#data-${num}`).remove();
+        for (let i = num + 1; i < numLevels; i++) {
+            $(`#data-${i}`).attr({id: `data-${i-1}`})
+        }
+        numLevels--;
+    }
+}
+
+function clearLine(line) {
+    let form = $(`#data-${line}`);
+    form.find(".name").val('');
+    form.find(".scrawny-beefy").prop('selectedIndex', 0);
+    form.find(".stupid-smart").prop('selectedIndex', 0);
+    form.find(".kind-mean").prop('selectedIndex', 0);
 }
 
 function handleChartUpdate() {
@@ -114,7 +130,17 @@ function handleChartUpdate() {
         y: [],
         z: []
     }
-    for (let i = 0; i < numLines; i++) {
+    for (let i = 0; i < numLevels; i++) {
         let form = $(`#data-${i}`);
+        data.names.push(form.find(".name").val());
+        data.x.push(parseInt(form.find(".scrawny-beefy").val()));
+        data.y.push(parseInt(form.find(".stupid-smart").val()));
+        data.z.push(parseInt(form.find(".kind-mean").val()));
+    }
+    if (hasCreatedChart) {
+        chart.updateChart(data);
+    } else {
+        $("#chart-container").css("display", "flex");
+        chart = new Chart(data);
     }
 }
