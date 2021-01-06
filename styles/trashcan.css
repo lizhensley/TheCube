@@ -4,6 +4,7 @@
 	height: 40px;
 	display: inline-block;
 	margin:0 auto;
+	top: 5px;
 	
 	position: relative;
 	-webkit-border-bottom-right-radius: 6px;
@@ -70,6 +71,10 @@
 	position: absolute;
 	right: -9px;
 	border-radius: 2px;
+}
+
+.trash:hover {
+	cursor: pointer;
 }
 
 .trash:hover span {

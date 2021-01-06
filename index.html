@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/trashcan.css">
 
+  <script src="https://kit.fontawesome.com/5c7768b55e.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
 </head>
 
 <body>
@@ -27,24 +31,112 @@
   </section>
 
   <section class="section is-light-blue">
-    <div class="container has-text-centered">
-      <div class="data">
-        <span class="trash">
-          <span></span>
-          <i></i>
-        </span>
+    <div id="data-container" class="container has-text-centered">
+      <div class="level data-level is-mobile" id="data-0">
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <h1 class="heading">Name</h1>
+              <input class="input is-rounded is-medium" type="text" placeholder="whomst">
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <h1 class="heading">scrawny-beefy</h1>
+              <div class="select is-red is-rounded">
+                <select class="scrawny-beefy">
+                  <option value="0">0 (scrawny)</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10 (beefy)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <h1 class="heading">stupid-smart</h1>
+              <div class="select is-light-blue is-rounded">
+                <select class="stupid-smart">
+                  <option value="0">0 (stupid)</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10 (smart)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <h1 class="heading">kind-mean</h1>
+              <div class="select is-purple is-rounded">
+                <select class="kind-mean">
+                  <option value="0">0 (kind)</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10 (mean)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="trash">
+            <span></span>
+            <i></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="level" id="buttons">
+        <div class="level-item buttons is-centered" style="margin-top: 20px">
+          <button id="add-line" class="button is-medium is-rounded is-dark-blue">
+            <h1 class="heading"><i class="fas fa-plus"></i>Add Line</h3>
+          </button>
+          <button id="update" class="button is-medium is-rounded is-dark-blue">
+            <h1 class="heading"><i class="fas fa-magic"></i>Create Cube</h3>
+          </button>
+        </div>
+      </div>
+
+      <div id="chart-container">
+        <div id="chart" style="width: 95%; height: 95%;"></div>
       </div>
     </div>
-    <div id="chart-container">
-      <div id="chart" style="width: 80%; height: 500px;"></div>
-    </div>
+
   </section>
 
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="scripts/plotly-latest.min.js"></script>
   <script src="scripts/firebase.js"></script>
   <script src="scripts/chart.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

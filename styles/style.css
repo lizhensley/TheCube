@@ -1,15 +1,27 @@
 body {
-    background: #152e51;
+    background: #40cedd;
     height: 100vh;
-    font-family: Courier New, monospace
+    font-family: monospace, 'Courier New', Courier;
 }
 
 #chart-container {
     display: flex;
     justify-content: center;
-    background: white;
-    border-radius: 20px;
+    background: none;
+    border-radius: 30px;
     height: 600px;
+}
+
+#data-container {
+    background: rgb(255,255,255, 0.85);
+    justify-content: center;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#button-container {
+    justify-content: center;
+    padding: 20px;
 }
 
 #cube-logo {
@@ -26,26 +38,84 @@ body {
     color: white;
 }
 
-.is-dark-blue {
+.button i {
+    padding-right: 10px;
+}
+
+.button {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.button:hover {
+    color: white;
+    opacity: .75;
+    border-color: #152e51;
+}
+
+.button:focus {
+    color: white;
+}
+
+.section.is-dark-blue, button.is-dark-blue {
     background: #152e51;
+    color: white;
+    border-color: #152e51;
 }
 
-.is-light-blue {
+.section.is-light-blue, button.is-light-blue {
     background: #40cedd;
+    color: white;
+    border-color: #40cedd;
 }
 
-.is-red {
+.section.is-red, button.is-red {
     background: #fb9296;
+    color: white;
+    border-color: #fb9296;
 }
 
-.is-purple {
+.section.is-purple, button.is-purple {
     background: #9f99ff;
+    color: white;
+    border-color: #9f99ff;
 }
 
-.is-yellow {
+.section.is-yellow, button.is-yellow {
     background: #fceac4;
+    color: black;
+    border-color: #fceac4;
 }
 
-.is-yellow .title, .is-yellow .subtitle {
+.input {
+    font-family: monospace, 'Courier New', Courier;
+}
+
+.heading {
+    font-family: monospace, 'Courier New', Courier;
+    font-size: 15px;
+}
+
+.control .heading {
     color: black;
+}
+
+.select.is-dark-blue select, .select.is-dark-blue:not(:hover)::after, .input.is-dark-blue{
+    border-color: #152e51;
+}
+
+.select.is-light-blue select, .select.is-light-blue:not(:hover)::after, .input.is-light-blue{
+    border-color: #40cedd;
+}
+
+.select.is-red select, .select.is-red:not(:hover)::after, .input.is-red{
+    border-color: #fb9296;
+}
+
+.select.is-purple select, .select.is-purple:not(:hover)::after, .input.is-purple{
+    border-color: #9f99ff;
+}
+
+.select.is-yellow select, .select.is-yellow:not(:hover)::after, .input.is-yellow{
+    border-color: #fceac4;
 }

@@ -3,7 +3,11 @@ class Chart {
     constructor(data) {
         this.data = data;
 
+        this.isHidden = true;
+
         this.layoutConfig = {
+            paper_bgcolor= 'rgba(0,0,0,0)',
+            plot_bgcolor= 'rgba(0,0,0,0)',
             margin: {l: 0, r: 0, b: 0, t: 0, pad: 10},
             scene: {
                 camera: {
@@ -84,6 +88,17 @@ class Chart {
 
         Plotly.newPlot('chart', this.dataConfig, this.layoutConfig, this.chartConfig);
     }
+
+    updateChart = function(data) {
+        let updatedDataConfig = {
+            names: data.names,
+            x: data.x,
+            y: data.y,
+            z: data.z
+        }
+
+        Plotly.restyle('chart', updatedDataConfig)
+    }
     
     getHoverText = function(name, x, y, z) {
         let values = [x, y, z];
@@ -112,12 +127,3 @@ class Chart {
         return `<b>${name}</b><br><br>• ${labels[0]}<br>• ${labels[1]}<br>• ${labels[2]}<extra></extra>`;
     }
 }
-
-let data = {
-    names: ["a", "b", "c"],
-    x: [1, 2, 3],
-    y: [0, 5, 10],
-    z: [4, 3, 6]
-}
-
-let chart = new Chart(data)
