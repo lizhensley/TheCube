@@ -140,6 +140,7 @@ function handleChartUpdate() {
     if (hasCreatedChart) {
         chart.updateChart(data);
     } else {
+        $("#update .heading").html($("#update .heading").html().replace($("#update .heading").text(),'Update Cube'));
         $("#chart-container").css("display", "flex");
         chart = new Chart(data);
     }
